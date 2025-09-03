@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const toast = new bootstrap.Toast(loginToast, {
             animation: true,
             autohide: true,
-            delay: 2000 // 3 seconds
+            delay: 1000 // 3 seconds
         });
         toast.show();
     }
