@@ -296,4 +296,53 @@ main {
 
 .border-top {
     border-top: 1px solid #D1D5DB !important;
+}
+
+/* Notifications Panel Styles */
+.notifications-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background-color: #1a1f36;
+    color: white;
+    z-index: 1050;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.notifications-panel.show {
+    right: 0;
+}
+
+.notifications-header {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notifications-header h5 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.notifications-body {
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.notifications-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notifications-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.notifications-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.notifications-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }   

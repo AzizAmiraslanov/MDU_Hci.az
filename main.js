@@ -1,4 +1,3 @@
-// Show login success toast when page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Login toast
     const loginToast = document.getElementById('loginToast');
@@ -6,23 +5,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const toast = new bootstrap.Toast(loginToast, {
             animation: true,
             autohide: true,
-            delay: 1000 // 3 seconds
+            delay: 1000 // 1 second
         });
         toast.show();
     }
 
-    // Sidebar toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('main');
-    
-    if (navToggle && sidebar) {
-        navToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('collapsed');
-            if (sidebar.classList.contains('collapsed')) {
-                mainContent.style.marginLeft = '60px';
-            } else {
-                mainContent.style.marginLeft = '250px';
+    // Notifications Panel
+    const notificationBtn = document.getElementById('notificationBtn');
+    const notificationsPanel = document.getElementById('notificationsPanel');
+    const closeNotifications = document.getElementById('closeNotifications');
+
+    if (notificationBtn && notificationsPanel && closeNotifications) {
+        notificationBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            notificationsPanel.classList.add('show');
+        });
+
+        closeNotifications.addEventListener('click', function() {
+            notificationsPanel.classList.remove('show');
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!notificationsPanel.contains(e.target) && 
+                !notificationBtn.contains(e.target) && 
+                notificationsPanel.classList.contains('show')) {
+                notificationsPanel.classList.remove('show');
             }
         });
     }
